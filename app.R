@@ -1,4 +1,3 @@
-tcr_db <- readRDS('data/db.rds')
 library(shiny)
 library(ggplot2)
 library(stringdist)

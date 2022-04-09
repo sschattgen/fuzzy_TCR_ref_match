@@ -1,3 +1,9 @@
+library(shiny)
+library(ggplot2)
+library(stringdist)
+#CAISEVGVGQPQHF
+tcr_db <- read.table('https://www.dropbox.com/s/k34e51bsxfuxpmg/new_paired_tcr_db_for_matching_nr.tsv.clustered.tsv?raw=1',
+                     sep='\t', header = T)
 
 server <- function(input, output) {
   keep_cols <- c('UMAP1','UMAP2','epitope_gene','mhc','cluster')
@@ -7,7 +13,7 @@ server <- function(input, output) {
   })
   
   distData <- reactive({
-    selectedData()[which( stringdist(input$cdr3, selectedData()[[input$chain]], method = input$dist_method) <= input$dist),]
+    tcr_db[which( stringdist(input$cdr3, selectedData()[[input$chain]], method = input$dist_method) <= input$dist),]
   })
 
   output$plot1 <- renderPlot({
@@ -28,7 +34,13 @@ server <- function(input, output) {
 
   })
   
-  output$table <- renderTable(distData()[,c(keep_cols, input$chain)])
+  output$table <- renderTable(distData())
+  
+  output$downloadData <- downloadHandler(
+    filename = 'results.csv', content = function(file) {
+      write.csv(distData(), file, row.names = FALSE)
+    }
+  )
   
  
 }
