@@ -1,5 +1,5 @@
 # fuzzy_TCR_ref_match
-shiny app for fuzyy matching single TCRs to reference db
+shiny app for fuzzy matching single TCRs to reference db
 
 ## Requires stringdist, ggplot2, and shiny packages
 
