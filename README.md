@@ -5,8 +5,8 @@ It has options for gene usage restrictions.
 I wrote it as a little tool for the lab, and for fun, but probably won't update or do much with it.
 A new database could be supplied and the umap embedding rerun using `make_ref_umap.py` to customize it.
 
-## Requires stringdist, ggplot2, and shiny packages
+### clone this repo then run code below in R.
 ```
 library(shiny)
-runApp("~/fuzzy_TCR_ref_match/")
+runApp("path_to_folder/fuzzy_TCR_ref_match/")
 ````

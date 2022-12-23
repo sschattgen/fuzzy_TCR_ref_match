@@ -1,10 +1,27 @@
-library(shiny)
-library(ggplot2)
-library(stringdist)
-library(dplyr)
-library(patchwork)
-library(magrittr)
-
+if(!require(shiny, quietly = TRUE)) {
+  install.packages("shiny", repos = 'https://cloud.r-project.org/')
+  require(shiny, quietly = TRUE)
+}
+if(!require(ggplot2, quietly = TRUE)) {
+  install.packages("ggplot2", repos = 'https://cloud.r-project.org/')
+  require(ggplot2, quietly = TRUE)
+}
+if(!require(stringdist, quietly = TRUE)) {
+  install.packages("stringdist", repos = 'https://cloud.r-project.org/')
+  require(stringdist, quietly = TRUE)
+}
+if(!require(dplyr, quietly = TRUE)) {
+  install.packages("dplyr", repos = 'https://cloud.r-project.org/')
+  require(dplyr, quietly = TRUE)
+}
+if(!require(patchwork, quietly = TRUE)) {
+  install.packages("patchwork", repos = 'https://cloud.r-project.org/')
+  require(patchwork, quietly = TRUE)
+}
+if(!require(magrittr, quietly = TRUE)) {
+  install.packages("magrittr", repos = 'https://cloud.r-project.org/')
+  require(magrittr, quietly = TRUE)
+}
 
 # setup ====
 tcr_db <- read.delim('data/new_paired_tcr_db_for_matching_nr.tsv.clustered.tsv')
